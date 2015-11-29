@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gru", "Gru\Gru.csproj", "{CE69225F-8CDD-43C5-9A9B-0484A8EC793D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared.Messages\Shared.csproj", "{148ABB77-3D61-4055-9764-7B08F6F8166E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minion", "Minion\Minion.csproj", "{DBD430B0-CAE3-4BCF-AFDD-96B20430CA90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE69225F-8CDD-43C5-9A9B-0484A8EC793D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE69225F-8CDD-43C5-9A9B-0484A8EC793D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE69225F-8CDD-43C5-9A9B-0484A8EC793D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE69225F-8CDD-43C5-9A9B-0484A8EC793D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148ABB77-3D61-4055-9764-7B08F6F8166E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148ABB77-3D61-4055-9764-7B08F6F8166E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148ABB77-3D61-4055-9764-7B08F6F8166E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148ABB77-3D61-4055-9764-7B08F6F8166E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD430B0-CAE3-4BCF-AFDD-96B20430CA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD430B0-CAE3-4BCF-AFDD-96B20430CA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD430B0-CAE3-4BCF-AFDD-96B20430CA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD430B0-CAE3-4BCF-AFDD-96B20430CA90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
