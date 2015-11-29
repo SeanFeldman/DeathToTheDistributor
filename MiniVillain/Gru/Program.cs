@@ -23,6 +23,11 @@
             configuration.EnableInstallers();
             configuration.SendFailedMessagesTo("error");
 
+
+            var minionEndpoint = new EndpointName("Minion");
+            configuration.Routing().UnicastRoutingTable.AddStatic(typeof(DoSomethingNaughty), minionEndpoint);
+            configuration.Routing().EndpointInstances.AddStatic(minionEndpoint, new EndpointInstanceName(minionEndpoint, null, null));
+            
             var endpoint = await Endpoint.Start(configuration);
             var busContext = endpoint.CreateBusContext();
 
@@ -43,24 +48,6 @@
                 Console.WriteLine("Commanding to do something naughty.");
                 await busContext.Send<DoSomethingNaughty>(m => m.Data = "Go minion, go!");
             }
-        }
-    }
-
-    class ConfigureMapping : IProvideConfiguration<UnicastBusConfig>
-    {
-        public UnicastBusConfig GetConfiguration()
-        {
-            return new UnicastBusConfig
-            {
-                MessageEndpointMappings = new MessageEndpointMappingCollection
-                {
-                    new MessageEndpointMapping
-                    {
-                        AssemblyName = "Shared",
-                        Endpoint = "Minion"
-                    }
-                }
-            };
         }
     }
 }
