@@ -3,8 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using NServiceBus;
-    using NServiceBus.Config;
-    using NServiceBus.Config.ConfigurationSource;
     using Shared.Messages;
 
     class Program
@@ -26,8 +24,8 @@
 
             var minionEndpoint = new EndpointName("Minion");
             configuration.Routing().UnicastRoutingTable.AddStatic(typeof(DoSomethingNaughty), minionEndpoint);
-            configuration.Routing().EndpointInstances.AddStatic(minionEndpoint, new EndpointInstanceName(minionEndpoint, null, null));
-            
+            configuration.Routing().UseFileBasedEndpointInstanceLists().LookForFilesIn(@".\");
+
             var endpoint = await Endpoint.Start(configuration);
             var busContext = endpoint.CreateBusContext();
 

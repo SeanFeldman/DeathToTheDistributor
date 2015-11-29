@@ -1,6 +1,7 @@
 ﻿namespace Minion
 {
     using System;
+    using System.Configuration;
     using System.Threading.Tasks;
     using NServiceBus;
     using Shared;
@@ -15,7 +16,7 @@
         static async Task AsyncMain()
         {
             var configuration = new BusConfiguration();
-            configuration.EndpointName("Minion");
+            configuration.EndpointName("Minion" + "-" + ConfigurationManager.AppSettings["minion.name"]);
             configuration.UseSerialization<JsonSerializer>();
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.EnableInstallers();
