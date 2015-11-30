@@ -16,7 +16,8 @@
         static async Task AsyncMain()
         {
             var configuration = new BusConfiguration();
-            configuration.EndpointName("Minion" + "-" + ConfigurationManager.AppSettings["minion.name"]);
+            configuration.EndpointName("Minion");
+            configuration.ScaleOut().UniqueQueuePerEndpointInstance(ConfigurationManager.AppSettings["minion.name"]);
             configuration.UseSerialization<JsonSerializer>();
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.EnableInstallers();
