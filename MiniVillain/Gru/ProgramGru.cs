@@ -7,7 +7,7 @@
     using NServiceBus.Config.ConfigurationSource;
     using Shared.Messages;
 
-    class Program
+    class ProgramGru
     {
         static void Main(string[] args)
         {
@@ -22,6 +22,7 @@
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.EnableInstallers();
             configuration.SendFailedMessagesTo("error");
+
 
             var endpoint = await Endpoint.Start(configuration);
             var busContext = endpoint.CreateBusContext();

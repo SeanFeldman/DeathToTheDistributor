@@ -5,7 +5,7 @@
     using NServiceBus;
     using Shared;
 
-    class Program
+    class ProgramMinion
     {
         static void Main(string[] args)
         {
@@ -16,6 +16,11 @@
         {
             var configuration = new BusConfiguration();
             configuration.EndpointName("Minion");
+            #region Minion name
+
+            // ConfigurationManager.AppSettings["minion.name"]
+
+            #endregion
             configuration.UseSerialization<JsonSerializer>();
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.EnableInstallers();
