@@ -23,6 +23,9 @@
             configuration.EnableInstallers();
             configuration.SendFailedMessagesTo("error");
 
+            var minionEndpoint = new EndpointName("minion");
+            configuration.Routing().UnicastRoutingTable.AddStatic(typeof(DoSomethingNaughty), minionEndpoint);
+            configuration.Routing().UseFileBasedEndpointInstanceLists().LookForFilesIn(@".\");
 
             var endpoint = await Endpoint.Start(configuration);
             var busContext = endpoint.CreateBusContext();
@@ -47,21 +50,21 @@
         }
     }
 
-    class ConfigureMapping : IProvideConfiguration<UnicastBusConfig>
-    {
-        public UnicastBusConfig GetConfiguration()
-        {
-            return new UnicastBusConfig
-            {
-                MessageEndpointMappings = new MessageEndpointMappingCollection
-                {
-                    new MessageEndpointMapping
-                    {
-                        AssemblyName = "Shared",
-                        Endpoint = "Minion"
-                    }
-                }
-            };
-        }
-    }
+//    class ConfigureMapping : IProvideConfiguration<UnicastBusConfig>
+//    {
+//        public UnicastBusConfig GetConfiguration()
+//        {
+//            return new UnicastBusConfig
+//            {
+//                MessageEndpointMappings = new MessageEndpointMappingCollection
+//                {
+//                    new MessageEndpointMapping
+//                    {
+//                        AssemblyName = "Shared",
+//                        Endpoint = "Minion"
+//                    }
+//                }
+//            };
+//        }
+//    }
 }

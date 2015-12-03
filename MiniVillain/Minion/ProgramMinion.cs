@@ -1,6 +1,7 @@
 ﻿namespace Minion
 {
     using System;
+    using System.Configuration;
     using System.Threading.Tasks;
     using NServiceBus;
     using Shared;
@@ -18,7 +19,8 @@
             configuration.EndpointName("Minion");
             #region Minion name
 
-            // ConfigurationManager.AppSettings["minion.name"]
+            // 
+            configuration.ScaleOut().UniqueQueuePerEndpointInstance(ConfigurationManager.AppSettings["minion.name"]);
 
             #endregion
             configuration.UseSerialization<JsonSerializer>();
